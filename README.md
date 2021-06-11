@@ -1,76 +1,76 @@
-# Project 1 : Recommending to College Board on the efficient way to improve SAT Participation Rate
+# Project 2: 
+# DSI-US-6 Project 2 Regression Challenge
+## Predict the price of homes at sale for the Aimes Iowa Housing dataset
 
-## Table of Contents
-- [Executive Summary](#Exective-Summary)
-- [2017 Data Import & Cleaning](#2017-Data-Import-and-Cleaning)
-- [2018 Data Import and Cleaning](#2018-Data-Import-and-Cleaning)
-- [Data Dictionary](#Data-Dictionry)
-- [Exploratory Data Analysis](#Exploratory-Data-Analysis)
-- [Data Visualization](#Visualize-the-data)
-- [Additional Plots](#Additional-Plots)
-- [Descriptive and Inferential Statistics](#Descriptive-and-Inferential-Statistics)
-- [Outside Research](#Outside-Research)
-- [Conclusions and Recommendations](#Conclusions-and-Recommendations)
-- [References and Data Sources](#References-and-Data-Sources)
+## Table of Contents:
 
+### Part 1
 
-## Executive Summary
+1. [Background](#1.-Background)  
+1. [Problem Statement](#2.-Problem-Statement)  
+1. [Executive Summary](#3.-Executive-Summary)  
+1. [Data Cleaning](#4.-Data-Cleaning)  
+    1. [Data Dictionary](#a.-Data-Dictionary)
+1. [Exploratory Data Analysis](#5.-Exploratory-Data-Analysis)  
+1. [Features Selection](#6.-Features-Selection)  
+    1. [Quantitative](#a.-Quantitative)  
+    1. [Qualitative](#b.-Qualitative)
+    1. [Summary](#c.-Features-Selection-Summary) 
+    
+### Part 2
+7. [Modeling](#7.-Modeling)    
+    1. [Base Case](#a.-Base-Case)
+1. [Fine Tuning](#8.-Fine-Tuning)  
+    1. [Model 1](#a.-Model-1:-Log-y-with-LR-with-same-features-as-baseline-case)
+    1. [Model 2](#b.-Model-2:-LR-with-same-features-as-baseline-case-and-Polynominal)
+    1. [Model 3](#c.-Model-3:-Lasso-with-same-features-as-baseline-case-and-Polynominal)
+    1. [Model 4](#d.-Model-4:-Ridge-with-same-features-as-baseline-case-and-Polynominal)
+    1. [Model 5](#e.-Model-5:-Ridge-with-more-features-and-Polynominal)  
+    1. [Final Model](#f.-Final-model)
+1. [Conclusion and Recommendations](#9.-Conclusion-and-Recommendations)  
+1. [References and Data Sources](#10.-References-and-Data-Sources) 
 
-This report provides an analysis and evaluation of the factors that affect SAT (and its biggest competitor ACT) Participation Rate during 2017 and 2018 in the United States. It also seek to track the effect of the new format for the SAT released in Mar 2016 in increasing SAT Participation Rate and recommends where money is best spend to further improve it. In the report, we investigate similarities and differences in SAT and ACT through participation rate, scores data Our findings shows that SAT and ACT are certainly in direct competition for market share. There are 2 main populations who will take the tests. First population will take the either of these 2 tests to use it as part of their college application requirements. This population will only take the tests if they will they can do well in it and if they intended to apply for college. The second population took the test as to fulfill the federal requirement for 'No Child Left Behind' for high school students. This is a bigger population which the first population is a subset of as all students not just the ones that intend to go to college have to take. The new format have been effective in helping SAT established itself as meeting the requirement as a test for the second population and helped the College Board to successfully win new contracts with the education administration of the states of Colorada, Illinois, Rhodes Island etc to make it as the go to test for the federal requirement in that state. We recommend that the College Board continue with this strategy as it have been very effective in increasing particpation in SAT and that to target Tennessee next.
+## 1. Background
 
----
-### Data Dictionary
-
-|Feature|Type|Dataset|Description|
-|:--|:-:|:-:|:--|
-|**state**|*object*|ACT/SAT|One of the 50 states of United States of America|
-|**sat17_par**|*integer*|SAT 2017|Participation rate in SAT in year 2017| 
-|**sat17_essay**|*integer*|SAT 2017|Scores of Evidence-Based Reading and Writing section in SAT'17| 
-|**sat17_math**|*integer*|SAT 2017|Scores of Math section in SAT'17| 
-|**sat17_total**|*integer*|SAT 2017|Total Score of SAT'17| 
-|**act17_par**|*integer*|ACT 2017|Participation rate in ACT in year 2017| 
-|**act17_eng**|*float*|ACT 2017|Scores of English section in ACT'17| 
-|**act17_math**|*float*|ACT 2017|Scores of Math section in ACT'17| 
-|**act17_read**|*float*|ACT 2017|Scores of Reading section in ACT'17| 
-|**act17_sci**|*float*|ACT 2017|Scores of Science section in ACT'17| 
-|**act17_comp**|*float*|ACT 2017|Composite Average Score of the 4 sections ACT'17| 
-|**sat18_par**|*integer*|SAT 2018|Participation rate in SAT in year 2018| 
-|**sat18_essay**|*integer*|SAT 2018|Scores of Evidence-Based Reading and Writing section in SAT'18| 
-|**sat18_math**|*integer*|SAT 2018|Scores of Math section in SAT'18| 
-|**sat18_total**|*integer*|SAT 2018|Total Score of SAT'18| 
-|**act18_par**|*integer*|ACT 2018|Participation rate in ACT in year 2018| 
-|**act18_eng**|*float*|ACT 2018|Scores of English section in ACT'18| 
-|**act18_math**|*float*|ACT 2018|Scores of Math section in ACT'18| 
-|**act18_read**|*float*|ACT 2018|Scores of Reading section in ACT'18| 
-|**act18_sci**|*float*|ACT 2018|Scores of Science section in ACT'18| 
-|**act18_comp**|*float*|ACT 2018|Composite Average Score of the 4 sections ACT'18| 
+We are given a Kaggle challenge to build a regression model based on the Ames housing data to **predict** the **sale price** for each house in Aimes Iowa. The data given include a train dataset with sales price in it and a test dataset without sales price in it.
 
 ---
-## Conclusion
+## 2. Problem Statement
 
-- SAT and ACT are in direct competition for market share
-- SAT and ACT tests have 2 uses
-    - To fulfill college entrance requirements
-    - To fulfill federal requirement of 'No child left behind'
-- Taking the test for college entrance requirement is personal and voluntary, as such students will only take a test if they know they can do well in it and if they need the test to go college.
-- For the federal requirement, states' education administration need to fulfill this requirement and thus made taking the SAT or ACT mandatory for all student in the state, even the students who do not make the grade to go college will have to take the test thus pulling down the average score
-- There is not much differences in the score distribution of the 2 test. A student cannot expect to be higher in the distribution of 1 test than the other
-- Both tests do not give surprises to the student so a student can generally expect to do well if he do well in mock test based on previous year questions.
-- Might not be the most effective to compete with ACT using scores given the similarities between the 2 tests. Also college might adjust the benchmarking
-- When given a choice, e.g. in Ohio, ACT is more likely to be chosen
-- Efforts by the College Board with states contracts from the Colorado, Illinois, Rhodes Island resulted in a big increase of SAT participation from single digit participation to 100%
-- Giving free / subsidized testing have mixed results in increasing participation rate
+To create a regression model that will predict the sale price for each house in Aimes Iowa. Using the train set to build the model and using the test set to test the RMSE score achieve by the model. The aim is to achieve the lowest RMSE on the test dataset. 
 
 ---
-## Recommendation
+## 3. Executive Summary
 
-- To maximize use of resources, recommended to increase SAT participation by focusing on making it the test states to use to fulfill federal requirement
-- As there is a trend of more colleges are dispensing with SAT or ACT test as compulsory for college entrance requirement, the population to use SAT for college entrance is in the danger of shrinking over time
-- Its use as a test for the federal requirement is more long term and also the population catchment is much larger
-- State education still need a mandatory test for the federal requirement for ‘No Child Left Behind’. Better it be SAT than other test
-- Furthermore, the College Board have tried and tested successful in states like Colorado and Illinois
-- There are still many states with low participation so the return per resource we put in would be the greatest
-- Out of these low participation states, Iowa, Missouri, South Dakota, Minnesota, Arkansas, Kansas, Tennessee, Oklahoma do not have arrangement with ACT and is up for grabs
-- We recommend to target Tennessee followed by Missouri at the moment since these 2 states have a larger population than the other states in the above list
+From the RMSE of the different models, our best model is Model 5 which have a RMSE score of 22873 on our holding set and 24842 on the Kaggle Test set. This model is a Ridge Regression model with 19 features, polynomised the continuous and ordinate data to a order of 2 and one hot encode the nominal data. 
+
+Our strategy on the EDA was to categorised the features into quantitative and qualitative data and then into similar characteristics like sizes and quality etc. For each group, we try to filter out the features which have little or no correlation with the SalePrice and also those which are not effective is categorizing the SalePrice into different ranges. We also look at the interaction between the features and if they are correlated with one another. 
+
+We discover that year built, ground living area, total rooms of the house and value of miscellanous features impact the Sale price greatly. Newer, bigger ground living area and higher total rooms increase the Sale price. Surprisingly lot area doesn't add alot more value to the Sale price as much as the ground living area. Excellent external quality and overall quality also add value to the SalePrice. Bigger garage area and bulit-in garage type and new sale type also contribute greatly to increase the SalePrice. Homeowners who are looking to increase their sale price can renovate a built in garage and improve the quality of their exterior material. The neighbourhoods with higher SalePrice are Stone Brook and Northridge
+
+From our base model,we notice that our predicted y underpredict for the range y more than 300,000. Also when we were doing EDA, a portion of the features show heteroskedasticity so we suspect interaction between the features which we try to linearise by using log y and adding polynominal features of order 2. We also used Ridge Regression to regularize the extra features in set 2. Both these help to reduce our RSME scores greatly.
 
 ---
+## Data Dictionary
+
+https://www.kaggle.com/c/dsi-us-6-project-2-regression-challenge/data
+
+---
+
+| Model    |              | RMSE  | Features | Linear Model | Hyper Parameter | Preprocessing |     |        |       |
+|---------:|--------------|-------|----------|--------------|-----------------|:-------------:|-----|--------|-------|
+|          |              |       |          |              |                 | Poly          | OHE | Target | Log y |
+| Baseline | Train        | 29983 | 1        | LR           |                 |               | Y   |        |       |
+|          | Hold         | 32617 |          |              |                 |               |     |        |       |
+| Model 1  | Train        | 25514 | 1        | LR           |                 |               | Y   |        | Y     |
+|          | Hold         | 27129 |          |              |                 |               |     |        |       |
+| Model 2  | Train        | 25037 | 1        | LR           |                 | Y             | Y   |        |       |
+|          | Hold         | 26179 |          |              |                 |               |     |        |       |
+| Model 3  | Train        | 26141 | 1        | Lasso        | 65.38           | Y             | Y   |        |       |
+|          | Hold         | 26178 |          |              |                 |               |     |        |       |
+| Model 4  | Train        | 25495 | 1        | Ridge        | 11.89           | Y             | Y   |        |       |
+|          | Hold         | 26019 |          |              |                 |               |     |        |       |
+| Model 5  | Train        | 22180 | 2        | Ridge        | 33.7            | Y             | Y   |        |       |
+|          | Hold         | 22873 |          |              |                 |               |     |        |       |
+|          | Train + Hold | 22018 |          |              | 27.364          |               |     |        |       |
+|          | Test         | 24842 |          |              |                 |               |     |        |       |
