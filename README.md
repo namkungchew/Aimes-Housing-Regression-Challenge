@@ -6,29 +6,29 @@
 
 ### Part 1
 
-1. [Background](#1.-Background)  
-1. [Problem Statement](#2.-Problem-Statement)  
-1. [Executive Summary](#3.-Executive-Summary)  
-1. [Data Cleaning](#4.-Data-Cleaning)  
-    1. [Data Dictionary](#a.-Data-Dictionary)
-1. [Exploratory Data Analysis](#5.-Exploratory-Data-Analysis)  
-1. [Features Selection](#6.-Features-Selection)  
-    1. [Quantitative](#a.-Quantitative)  
-    1. [Qualitative](#b.-Qualitative)
-    1. [Summary](#c.-Features-Selection-Summary) 
+1. Background
+1. Problem Statement
+1. Executive Summary
+1. Data Cleaning
+    1. Data Dictionary
+1. Exploratory Data Analysis
+1. Features Selection
+    1. Quantitative
+    1. Qualitative
+    1. Summary
     
 ### Part 2
-7. [Modeling](#7.-Modeling)    
-    1. [Base Case](#a.-Base-Case)
-1. [Fine Tuning](#8.-Fine-Tuning)  
-    1. [Model 1](#a.-Model-1:-Log-y-with-LR-with-same-features-as-baseline-case)
-    1. [Model 2](#b.-Model-2:-LR-with-same-features-as-baseline-case-and-Polynominal)
-    1. [Model 3](#c.-Model-3:-Lasso-with-same-features-as-baseline-case-and-Polynominal)
-    1. [Model 4](#d.-Model-4:-Ridge-with-same-features-as-baseline-case-and-Polynominal)
-    1. [Model 5](#e.-Model-5:-Ridge-with-more-features-and-Polynominal)  
-    1. [Final Model](#f.-Final-model)
-1. [Conclusion and Recommendations](#9.-Conclusion-and-Recommendations)  
-1. [References and Data Sources](#10.-References-and-Data-Sources) 
+7. Modeling
+    1. Base Case
+1. Fine Tuning
+    1. Model 1
+    1. Model 2
+    1. Model 3
+    1. Model 4
+    1. Model 5
+    1. Final Model
+1. Conclusion and Recommendations
+1. References and Data Sources
 
 ## 1. Background
 
