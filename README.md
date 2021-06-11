@@ -56,6 +56,7 @@ From our base model,we notice that our predicted y underpredict for the range y 
 https://www.kaggle.com/c/dsi-us-6-project-2-regression-challenge/data
 
 ---
+## Models and RMSE Score
 
 | Model    |              | RMSE  | Features | Linear Model | Hyper Parameter | Preprocessing |     |        |       |
 |---------:|--------------|-------|----------|--------------|-----------------|:-------------:|-----|--------|-------|
