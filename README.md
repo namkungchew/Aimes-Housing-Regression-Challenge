@@ -42,13 +42,13 @@ To create a regression model that will predict the sale price for each house in 
 ---
 ## 3. Executive Summary
 
-From the RMSE of the different models, our best model is Model 5 which have a RMSE score of 22873 on our holding set and 24842 on the Kaggle Test set. This model is a Ridge Regression model with 19 features, polynomised the continuous and ordinate data to a order of 2 and one hot encode the nominal data. 
+From the RMSE of the different models, our best model is Model 5 which have a RMSE score of 22221 on our holding set and 25112 on the Kaggle Test set. This model is a Ridge Regression model with 20 features, polynomised the continuous and ordinate data to a order of 2 and one hot encode the nominal data. 
 
 Our strategy on the EDA was to categorised the features into quantitative and qualitative data and then into similar characteristics like sizes and quality etc. For each group, we try to filter out the features which have little or no correlation with the SalePrice and also those which are not effective is categorizing the SalePrice into different ranges. We also look at the interaction between the features and if they are correlated with one another. 
 
-We discover that year built, ground living area, total rooms of the house and value of miscellanous features impact the Sale price greatly. Newer, bigger ground living area and higher total rooms increase the Sale price. Surprisingly lot area doesn't add alot more value to the Sale price as much as the ground living area. Excellent external quality and overall quality also add value to the SalePrice. Bigger garage area and bulit-in garage type and new sale type also contribute greatly to increase the SalePrice. Homeowners who are looking to increase their sale price can renovate a built in garage and improve the quality of their exterior material. The neighbourhoods with higher SalePrice are Stone Brook and Northridge
+We discover that year built, ground living area and total rooms of the house impact the Sale price greatly. Newer, bigger ground living area and higher total rooms increase the Sale price. Surprisingly lot area doesn't add alot more value to the Sale price as much as the ground living area. Excellent external quality and overall quality also add value to the SalePrice. Bigger garage area and bulit-in garage type and new sale type also contribute greatly to increase the SalePrice. We recommend homeowners who are looking to increase their sale price can renovate a built in garage and improve the quality of their exterior material. The neighbourhoods with higher SalePrice are Stone Brook and Northridge
 
-From our base model,we notice that our predicted y underpredict for the range y more than 300,000. Also when we were doing EDA, a portion of the features show heteroskedasticity so we suspect interaction between the features which we try to linearise by using log y and adding polynominal features of order 2. We also used Ridge Regression to regularize the extra features in set 2. Both these help to reduce our RSME scores greatly.
+From our base model, we notice that our predicted y underpredict for the range y more than 300,000. Also when we were doing EDA, a portion of the features show heteroskedasticity so we suspect interaction between the features which we try to linearise by using log y and adding polynominal features of order 2. We also used Ridge Regression to regularize the extra features in set 2. Both these help to reduce our RSME scores greatly.
 
 ---
 ## Data Dictionary
@@ -61,17 +61,17 @@ https://www.kaggle.com/c/dsi-us-6-project-2-regression-challenge/data
 | Model    |              | RMSE  | Features | Linear Model | Hyper Parameter | Preprocessing |     |        |       |
 |---------:|--------------|-------|----------|--------------|-----------------|:-------------:|-----|--------|-------|
 |          |              |       |          |              |                 | Poly          | OHE | Target | Log y |
-| Baseline | Train        | 29983 | 1        | LR           |                 |               | Y   |        |       |
-|          | Hold         | 32617 |          |              |                 |               |     |        |       |
-| Model 1  | Train        | 25514 | 1        | LR           |                 |               | Y   |        | Y     |
-|          | Hold         | 27129 |          |              |                 |               |     |        |       |
-| Model 2  | Train        | 25037 | 1        | LR           |                 | Y             | Y   |        |       |
-|          | Hold         | 26179 |          |              |                 |               |     |        |       |
-| Model 3  | Train        | 26141 | 1        | Lasso        | 65.38           | Y             | Y   |        |       |
-|          | Hold         | 26178 |          |              |                 |               |     |        |       |
-| Model 4  | Train        | 25495 | 1        | Ridge        | 11.89           | Y             | Y   |        |       |
-|          | Hold         | 26019 |          |              |                 |               |     |        |       |
-| Model 5  | Train        | 22180 | 2        | Ridge        | 33.7            | Y             | Y   |        |       |
-|          | Hold         | 22873 |          |              |                 |               |     |        |       |
-|          | Train + Hold | 22018 |          |              | 27.364          |               |     |        |       |
-|          | Test         | 24842 |          |              |                 |               |     |        |       |
+| Baseline | Train        | 29347 | 1        | LR           |                 |               | Y   |        |       |
+|          | Hold         | 31425 |          |              |                 |               |     |        |       |
+| Model 1  | Train        | 25360 | 1        | LR           |                 |               | Y   |        | Y     |
+|          | Hold         | 26638 |          |              |                 |               |     |        |       |
+| Model 2  | Train        | 24554 | 1        | LR           |                 | Y             | Y   |        |       |
+|          | Hold         | 25807 |          |              |                 |               |     |        |       |
+| Model 3  | Train        | 25933 | 1        | Lasso        | 93.96           | Y             | Y   |        |       |
+|          | Hold         | 25867 |          |              |                 |               |     |        |       |
+| Model 4  | Train        | 24583 | 1        | Ridge        | 0.01            | Y             | Y   |        |       |
+|          | Hold         | 25677 |          |              |                 |               |     |        |       |
+| Model 5  | Train        | 22221 | 2        | Ridge        | 44.49           | Y             | Y   |        |       |
+|          | Hold         | 23286 |          |              |                 |               |     |        |       |
+|          | Train + Hold | 21902 |          |              | 33.7            |               |     |        |       |
+|          | Test         | 25112 |          |              |                 |               |     |        |       |
